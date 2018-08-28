@@ -42,4 +42,11 @@ class nexus::config::v3 {
     match => '^-Djava.io.tmpdir=',
   }
 
+  file { "${::nexus::config::nexus_config_file}":
+    ensure => file,
+    owner  => 'nexus',
+    group  => 'nexus',
+    mode   => '0640',
+  }
+
 }
